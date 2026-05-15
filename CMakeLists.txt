@@ -24,7 +24,21 @@ set(
 )
 
 add_executable(Breakout
-  main.cpp
+  "main.cpp"
+  
+  "Editor/src/Button.cpp"
+  "Editor/src/Blocks.cpp"
+  "Editor/src/Actor.cpp"
+  "Editor/src/ActorTooltip.cpp"
+  "Editor/src/Level.cpp"
+  
+  "Engine/src/Scene.cpp"
+  "Engine/ECS/src/Component.cpp"
+  "Engine/ECS/src/CollisionComponent.cpp"
+  "Engine/ECS/src/ImageComponent.cpp"
+  "Engine/ECS/src/PhysicsComponent.cpp"
+  "Engine/ECS/src/InputComponent.cpp"
+  "Engine/ECS/src/Commands.cpp"
 )
  
  target_compile_definitions(
@@ -36,6 +50,10 @@ add_executable(Breakout
  target_include_directories(
     Breakout PUBLIC ${PROJECT_SOURCE_DIR}/src
 )
+
+if(WIN32)
+  set(MATH_LIBRARY "" CACHE STRING "" FORCE)
+endif()
 
 if(APPLE)
   set_target_properties(Breakout PROPERTIES
