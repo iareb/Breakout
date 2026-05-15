@@ -2,6 +2,7 @@
 #include "Engine/Scene.h"
 
 class BreakoutScene : public Scene {
+public:
     BreakoutScene(Window& ParentWindow)
     : Scene{ParentWindow} {}
 };
