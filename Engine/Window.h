@@ -2,6 +2,8 @@
 #include <iostream>
 #include <SDL3/SDL.h>
 
+#include "Config.h"
+
 class Window {
 public:
     Window() {
@@ -27,7 +29,14 @@ public:
 
         SDL_FillSurfaceRect(
             GetSurface(), nullptr,
-            SDL_MapRGB(Fmt, nullptr, 220, 220, 220));
+            SDL_MapRGB(
+                Fmt,
+                nullptr,
+                Config::Engine::WINDOW_BACKGROUND.r,
+                Config::Engine::WINDOW_BACKGROUND.g,
+                Config::Engine::WINDOW_BACKGROUND.b
+            )
+        );
     }
 
     void Update() {

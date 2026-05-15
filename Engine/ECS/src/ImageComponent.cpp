@@ -21,7 +21,7 @@ namespace {
 		// Target rendering dimensions
 		float TargetW, float TargetH
 	) {
-		BlitInfo Info;
+		BlitInfo Info{};
 
 		if (Mode == ScalingMode::None) {
 			// Render at natural image size
@@ -31,7 +31,7 @@ namespace {
 			  TargetY,
 			  static_cast<float>(SurfaceW),
 			  static_cast<float>(SurfaceH)
-				});
+			});
 			return Info;
 		}
 		
@@ -115,7 +115,9 @@ void ImageComponent::Initialize() {
 }
 
 void ImageComponent::Render(SDL_Surface* Surface) {
-	if (!ImageSurface) return;
+	if (!ImageSurface) {
+		return;
+	}
 
 	auto [TargetX, TargetY] { GetOwnerPosition() + Offset };
 

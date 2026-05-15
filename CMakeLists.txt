@@ -39,7 +39,9 @@ add_executable(Breakout
   "Engine/ECS/src/PhysicsComponent.cpp"
   "Engine/ECS/src/InputComponent.cpp"
   "Engine/ECS/src/Commands.cpp"
-  Breakout/BreakoutScene.h
+  "Breakout/BreakoutScene.h"
+  "Breakout/Ball.h"
+  "Breakout/src/BreakoutScene.cpp"
 )
  
  target_compile_definitions(

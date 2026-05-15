@@ -1,18 +1,18 @@
 #include <vector>
 #include <iostream>
 #include "Engine/Scene.h"
-#include "Engine/ECS/Character.h"
-#include "Engine/ECS/Floor.h"
+#include "Engine/ECS/CollisionComponent.h"
+#include "Config.h"
 
 Scene::Scene(Window& ParentWindow)
 : ParentWindow{ ParentWindow }  {
-    Entities.emplace_back(
-        std::make_unique<Character>(*this)
+#ifdef DRAW_DEBUG_HELPERS
+    Trajectories = SDL_CreateSurface(
+      Config::Engine::WINDOW_WIDTH,
+      Config::Engine::WINDOW_HEIGHT,
+      SDL_PIXELFORMAT_RGBA32
     );
-
-    Entities.emplace_back(
-        std::make_unique<Floor>(*this)
-    );
+#endif
 }
 
 void Scene::HandleEvent(const SDL_Event& Event) {
