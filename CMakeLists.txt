@@ -85,7 +85,7 @@ target_link_libraries(Breakout
   SDL3_ttf::SDL3_ttf 
 )
 
-set(AssetDirectory "${PROJECT_SOURCE_DIR}/assets")
+set(AssetDirectory "${PROJECT_SOURCE_DIR}/Assets")
 add_custom_command(
   TARGET Breakout POST_BUILD
   COMMAND
@@ -98,6 +98,6 @@ add_custom_command(
   COMMAND
   ${CMAKE_COMMAND} -E copy_directory_if_different
     "${AssetDirectory}"
-    "$<TARGET_FILE_DIR:Breakout>/assets"
+    "$<TARGET_FILE_DIR:Breakout>/Assets"
   VERBATIM
 )
