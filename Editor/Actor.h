@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include <SDL3/SDL.h>
 #include "Editor/Image.h"
 

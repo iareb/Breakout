@@ -1,6 +1,6 @@
-#include "PhysicsComponent.h"
-#include "Entity.h"
-#include "Scene.h"
+#include "Engine/ECS/PhysicsComponent.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/Scene.h"
 
 void PhysicsComponent::Initialize() {
 	// Physics needs a Transform to know where the entity is

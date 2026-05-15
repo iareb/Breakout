@@ -3,8 +3,8 @@
 #include <string>
 #include <SDL3/SDL.h>
 #include <optional>
-#include "Component.h"
-#include "Vec2.h"
+#include "Engine/ECS/Component.h"
+#include "Engine/Vec2.h"
 
 /**
 * Four scaling modes for our images.

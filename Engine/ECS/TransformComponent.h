@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include <SDL3/SDL.h>
-#include "Vec2.h"
-#include "Component.h"
-#include "Utilities.h"
+#include "Engine/Vec2.h"
+#include "Engine/ECS/Component.h"
+#include "Engine/Utilities.h"
 
 class TransformComponent : public Component {
 public:

@@ -1,9 +1,9 @@
 #include <SDL3/SDL.h>
-#include "InputComponent.h"
-#include "Commands.h"
-#include "Entity.h"
-#include "Vec2.h"
-#include "Scene.h"
+#include "Engine/ECS/InputComponent.h"
+#include "Engine/ECS/Commands.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/Vec2.h"
+#include "Engine/Scene.h"
 
 /**
 * In this anonymous namespace, we create factory functions

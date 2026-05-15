@@ -1,7 +1,8 @@
 #pragma once
 #include "Entity.h"
-#include "Scene.h"
+#include "Engine/Scene.h"
 #include "Floor.h"
+#include "ImageComponent.h"
 
 class Character : public Entity {
 public:
@@ -16,7 +17,7 @@ public:
 		});
 
 		AddComponent<PhysicsComponent>()->SetMass(50.0);
-		AddComponent<ImageComponent>(BasePath + "assets/player.png");
+		AddComponent<ImageComponent>(BasePath + "Assets/player.png");
 		AddComponent<CollisionComponent>()->SetSize(
 			1.9f * Scene.PIXELS_PER_METER,
 			1.7f * Scene.PIXELS_PER_METER

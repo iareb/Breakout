@@ -39,6 +39,7 @@ add_executable(Breakout
   "Engine/ECS/src/PhysicsComponent.cpp"
   "Engine/ECS/src/InputComponent.cpp"
   "Engine/ECS/src/Commands.cpp"
+  Breakout/BreakoutScene.h
 )
  
  target_compile_definitions(
@@ -48,7 +49,7 @@ add_executable(Breakout
  )
  
  target_include_directories(
-    Breakout PUBLIC ${PROJECT_SOURCE_DIR}/src
+    Breakout PUBLIC ${PROJECT_SOURCE_DIR}
 )
 
 if(WIN32)

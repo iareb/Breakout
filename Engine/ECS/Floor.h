@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
-#include "Scene.h"
+#include "Engine/Scene.h"
+#include "ImageComponent.h"
 
 class Floor : public Entity {
 public:
@@ -10,7 +11,7 @@ public:
           4.5f * Scene.PIXELS_PER_METER,
           1.f * Scene.PIXELS_PER_METER
             });
-        AddComponent<ImageComponent>(BasePath + "assets/floor.png");
+        AddComponent<ImageComponent>(BasePath + "Assets/floor.png");
         AddComponent<CollisionComponent>()->SetSize(
             5.0f * Scene.PIXELS_PER_METER,
             2.0f * Scene.PIXELS_PER_METER

@@ -1,9 +1,8 @@
 #include <iostream>
-#include "Component.h"
-#include "Entity.h"
-#include "Scene.h"
-#include "AssetManager.h"
-#include "TransformComponent.h"
+#include "Engine/ECS/Component.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/Scene.h"
+#include "Engine/ECS/TransformComponent.h"
 
 Scene& Component::GetScene() const {
 	return GetOwner()->GetScene();

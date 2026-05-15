@@ -3,7 +3,7 @@
 #include <memory>
 #include <unordered_map>
 #include <SDL3/SDL.h>
-#include "Component.h"
+#include "Engine/ECS/Component.h"
 
 class Command;
 /**

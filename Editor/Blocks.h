@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Editor/Actor.h"
 
 #define DECLARE_BLOCK_TYPE(BlockName)               \

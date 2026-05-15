@@ -6,8 +6,6 @@
 #include "Component.h"
 #include "Commands.h"
 #include "TransformComponent.h"
-#include "ImageComponent.h"
-#include "PhysicsComponent.h"
 
 class Scene;
 using ComponentPtr = std::unique_ptr<Component>;

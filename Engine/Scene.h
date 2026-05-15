@@ -1,13 +1,13 @@
 #pragma once
 #include <SDL3/SDL.h>
 #include <vector>
-#include "Entity.h"
+#include "Engine/ECS/Entity.h"
 #include "Window.h"
 #include "AssetManager.h"
-#include "TransformComponent.h"
-#include "PhysicsComponent.h"
-#include "InputComponent.h"
-#include "CollisionComponent.h"
+#include "Engine/ECS/TransformComponent.h"
+#include "Engine/ECS/PhysicsComponent.h"
+#include "Engine/ECS/InputComponent.h"
+#include "Engine/ECS/CollisionComponent.h"
 
 using EntityPtr = std::unique_ptr<Entity>;
 using EntityPtrs = std::vector<EntityPtr>;
@@ -15,7 +15,7 @@ using EntityPtrs = std::vector<EntityPtr>;
 class Scene {
 public:
 	static inline int PIXELS_PER_METER{ 50 };
-	static inline Vec2 GRAVITY{ 0, 9.8 * PIXELS_PER_METER };
+	static inline Vec2 GRAVITY = { 0, 9.8 * PIXELS_PER_METER };
 
 	#ifdef DRAW_DEBUG_HELPERS
 	SDL_Surface* Trajectories{

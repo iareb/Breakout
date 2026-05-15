@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
-#include "Scene.h"
-#include "Character.h"
-#include "Floor.h"
+#include "Engine/Scene.h"
+#include "Engine/ECS/Character.h"
+#include "Engine/ECS/Floor.h"
 
 Scene::Scene(Window& ParentWindow)
 : ParentWindow{ ParentWindow }  {

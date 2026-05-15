@@ -1,10 +1,10 @@
-#include "ImageComponent.h"
 #include <iostream>
 #include <SDL3_image/SDL_image.h> 
 #include <algorithm>
-#include "Entity.h"
-#include "TransformComponent.h"
-#include "AssetManager.h"
+#include "Engine/ECS/ImageComponent.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/ECS/TransformComponent.h"
+#include "Engine/AssetManager.h"
 
 namespace {
 	struct BlitInfo {

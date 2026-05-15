@@ -1,10 +1,10 @@
 #pragma once
-#include <SDL3/SDL.h>
+#include <iostream>
 #include <memory>
 #include <string>
 #include <unordered_map>
+#include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
-#include <iostream>
 
 struct SDLSurfaceDeleter {
 	void operator()(SDL_Surface* Surface) const {

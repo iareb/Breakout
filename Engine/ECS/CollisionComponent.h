@@ -1,7 +1,7 @@
 #pragma once
-#include "Component.h"
-#include "Vec2.h"
 #include <SDL3/SDL.h>
+#include "Engine/ECS/Component.h"
+#include "Engine/Vec2.h"
 
 class CollisionComponent : public Component {
 public:

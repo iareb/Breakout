@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
-#include "CollisionComponent.h"
-#include "Entity.h"
-#include "Utilities.h"
+#include "Engine/ECS/CollisionComponent.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/Utilities.h"
 
 void CollisionComponent::Initialize() {
     if (!GetOwner()->GetComponent<TransformComponent>()) {

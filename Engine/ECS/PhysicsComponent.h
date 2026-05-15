@@ -1,6 +1,6 @@
 #pragma once
-#include "Component.h"
-#include "Vec2.h"
+#include "Engine/ECS/Component.h"
+#include "Engine/Vec2.h"
 
 class PhysicsComponent : public Component {
 public:

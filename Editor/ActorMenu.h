@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL3/SDL.h>
+#include <memory>
 #include <vector>
 #include "Editor/Actor.h"
 #include "Editor/Blocks.h"

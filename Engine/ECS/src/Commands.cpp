@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Commands.h"
-#include "Entity.h"
-#include "PhysicsComponent.h"
+#include "Engine/ECS/Commands.h"
+#include "Engine/ECS/Entity.h"
+#include "Engine/ECS/PhysicsComponent.h"
 
 void MovementCommand::Execute(Entity* Target) {
 	if (!Target) return;
