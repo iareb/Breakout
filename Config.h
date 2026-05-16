@@ -18,32 +18,32 @@ namespace UserEvents{
 
 namespace Config {
     enum class ActorType : Uint8 {
-      Actor = 0,
-      BlueBlock = 1,
-      GreenBlock = 2,
-      CyanBlock = 3,
-      OrangeBlock = 4,
-      RedBlock = 5,
-      YellowBlock = 6,
+        Actor = 0,
+        BlueBlock = 1,
+        GreenBlock = 2,
+        CyanBlock = 3,
+        OrangeBlock = 4,
+        RedBlock = 5,
+        YellowBlock = 6,
     };
     
     inline const std::vector BUTTON_COLORS{
-      SDL_Color{15, 15, 15, 255},  // Normal
-      SDL_Color{15, 155, 15, 255}, // Hover
-      SDL_Color{225, 15, 15, 255}, // Active
-      SDL_Color{60, 60, 60, 255}   // Disabled
+        SDL_Color{15, 15, 15, 255},  // Normal
+        SDL_Color{15, 155, 15, 255}, // Hover
+        SDL_Color{225, 15, 15, 255}, // Active
+        SDL_Color{60, 60, 60, 255}   // Disabled
     };
     
     inline constexpr SDL_Color FONT_COLOR{
-      255, 255, 255, 255
+        255, 255, 255, 255
     };
     
     inline const std::string BASE_PATH{
-      SDL_GetBasePath()
+        SDL_GetBasePath()
     };
     
     inline const std::string FONT{
-      BASE_PATH + "Assets/Rubik-SemiBold.ttf"
+        BASE_PATH + "Assets/Rubik-SemiBold.ttf"
     };
     
     static inline int PIXELS_PER_METER{ 50 };
@@ -57,14 +57,17 @@ namespace Config::Editor {
     inline const int VERTICAL_GRID_SNAP{25};
     inline const Uint8 GRID_WIDTH{13};
     inline const Uint8 GRID_HEIGHT{6};
+    
     inline const int LEVEL_WIDTH{
-      HORIZONTAL_GRID_SNAP * GRID_WIDTH
+        HORIZONTAL_GRID_SNAP * GRID_WIDTH
     };
+
     inline const int LEVEL_HEIGHT{
-      VERTICAL_GRID_SNAP * GRID_HEIGHT
+        VERTICAL_GRID_SNAP * GRID_HEIGHT
     };
+    
     inline constexpr SDL_Color LEVEL_BACKGROUND{
-      50, 50, 50, 255
+        50, 50, 50, 255
     };
 
     // ActorMenu
@@ -89,10 +92,10 @@ namespace Config::Editor {
 
 namespace Config::Engine {
     inline const std::string WINDOW_TITLE{"Breakout"};
-    inline const int WINDOW_WIDTH{720};
-    inline const int WINDOW_HEIGHT{400};
+    inline const int WINDOW_WIDTH{ 960 };
+    inline const int WINDOW_HEIGHT{ 540 };
     inline const SDL_Color WINDOW_BACKGROUND{
-      35, 35, 35, 255
+        35, 35, 35, 255
     };
 }
 
@@ -111,6 +114,6 @@ namespace Config::Breakout {
   // Meters per second
   inline const Vec2 GRAVITY{ 0, 9.8f * PIXELS_PER_METER };
 
-  inline const float BALL_SPEED{10.f};
-  inline const float PADDLE_SPEED{5.f};
+  inline const float BALL_SPEED{ 10.f };
+  inline const float PADDLE_SPEED{ 7.f };
 }

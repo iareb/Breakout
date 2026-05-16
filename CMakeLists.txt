@@ -44,7 +44,7 @@ add_executable(Breakout
   "Breakout/src/BreakoutScene.cpp"
   "Breakout/Wall.h"
   "Breakout/src/Ball.cpp"
- "Breakout/PaddleInputComponent.h")
+ "Breakout/PaddleInputComponent.h" "Breakout/Block.h")
  
  target_compile_definitions(
 	Breakout PUBLIC

@@ -9,7 +9,9 @@ public:
     Window() {
         SDLWindow = SDL_CreateWindow(
             "Scene",
-            700, 300, 0
+            Config::Engine::WINDOW_WIDTH, 
+            Config::Engine::WINDOW_HEIGHT, 
+            0
         );
     }
 

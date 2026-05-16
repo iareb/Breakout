@@ -14,8 +14,8 @@ public:
 	Paddle(BreakoutScene& Scene) : Entity{Scene} {
 		Transform = AddComponent<TransformComponent>();
 		Transform->SetPosition({
-			5.0f * Config::PIXELS_PER_METER,
-			5.5f * Config::PIXELS_PER_METER
+			7.f * Config::PIXELS_PER_METER,
+			10.f * Config::PIXELS_PER_METER
 		});
 
 		Input = AddComponent<PaddleInputComponent>();
