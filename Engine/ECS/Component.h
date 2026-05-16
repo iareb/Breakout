@@ -23,6 +23,12 @@ public:
 	void SetOwnerPosition(const Vec2& Pos) const;
 	float GetOwnerScale() const;
 
+	bool GetIsEnabled() const { return IsEnabled; }
+	void SetIsEnabled(bool Enabled) {
+		IsEnabled = Enabled;
+	}
+
 private:
 	Entity* Owner{ nullptr };
+	bool IsEnabled{ true };
 };

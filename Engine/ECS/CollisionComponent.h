@@ -14,7 +14,18 @@ public:
 	
 	// Setters for defining the collision shape
 	void SetOffset(const Vec2& NewOffset);
+	
+	Vec2 GetSize() const { return { Width, Height }; }
 	void SetSize(float NewWidth, float NewHeight);
+
+	// Returns the position at the center of the collision rectangle.
+	Vec2 GetCenter() const {
+		const auto& [x, y, w, h] {GetBounds()};
+		return {
+			x + w / 2,
+			y + h / 2
+		}
+	}
 
 	// Getter for the calculated bounds
 	const SDL_FRect& GetBounds() const;

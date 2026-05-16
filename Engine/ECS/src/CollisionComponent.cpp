@@ -72,15 +72,33 @@ void CollisionComponent::DrawDebugHelpers(SDL_Surface* Surface)
     // Convert bounds to integer SDL_Rect for drawing
     SDL_Rect ScreenBounds{ Utilities::Round(Bounds) };
 
+    const auto* Fmt{ SDL_GetPixelFormatDetails(
+        Surface->format
+    )};
+
+    // Yellow
+    Uint32 Color{ SDL_MapRGB(
+        Fmt, nullptr, 255, 255, 0
+    ) };
+
+    if (!GetIsEnabled()) {
+        // Orange
+        Color = SDL_MapRGB(
+            Fmt, nullptr, 255, 165, 0
+        );
+    }
+
     // Draw outline using the helper
     Utilities::DrawRectOutline(
         Surface,
-        ScreenBounds,
-        // Yellow
-        SDL_MapRGB(
-            SDL_GetPixelFormatDetails(Surface->format),
-            nullptr, 255, 255, 0
-        ),
-        1 // Thin line
+        ScreenBounds,        
+        Color,   
+        1       // Thin line
     );
+
+    auto [cx, cy] {GetCenter()};
+    SDL_Rect CenterRect{ Utilities::Round({
+        cx - 3, cy - 3, 6, 6
+    }) };
+    SDL_FillSurfaceRect(Surface, &CenterRect, Color);
 }
