@@ -11,7 +11,7 @@ class Scene;
 using ComponentPtr = std::unique_ptr<Component>;
 using ComponentPtrs = std::vector<ComponentPtr>;
 
-#define DRAW_DEBUG_HELPERS
+// #define DRAW_DEBUG_HELPERS
 
 class Entity {
 public:

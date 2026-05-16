@@ -21,7 +21,9 @@ namespace {
 		// Target rendering dimensions
 		float TargetW, float TargetH
 	) {
-		BlitInfo Info{};
+		BlitInfo Info{
+			.SourceRect = { 0, 0, SurfaceW, SurfaceH }
+		};
 
 		if (Mode == ScalingMode::None) {
 			// Render at natural image size
@@ -217,7 +219,7 @@ void ImageComponent::DrawDebugHelpers(SDL_Surface* Surface) {
 	// similar to what we did in Render()
 	auto [TargetX, TargetY] {
 		GetOwnerPosition() + Offset
-		};
+	};
 	float OwnerScale{ GetOwnerScale() };
 	float TargetW{ GetWidth() * OwnerScale };
 	float TargetH{ GetHeight() * OwnerScale };
@@ -226,11 +228,12 @@ void ImageComponent::DrawDebugHelpers(SDL_Surface* Surface) {
 
 	// 1. Draw Natural Bounds (Green Outline)
 	SDL_Rect NaturalBounds{
-	  Utilities::Round({
-		TargetX, TargetY,
-		SurfaceW * OwnerScale,
-		SurfaceH * OwnerScale
-	})};
+		Utilities::Round({
+			TargetX, TargetY,
+			SurfaceW * OwnerScale,
+			SurfaceH * OwnerScale
+		}
+	)};
 
 	DrawRectOutline(
 		Surface, NaturalBounds,
@@ -242,10 +245,10 @@ void ImageComponent::DrawDebugHelpers(SDL_Surface* Surface) {
 
 	// 2. Draw Rendered Bounds (Red Outline)
 	BlitInfo Info{ CalculateBlitInfo(
-	  ScaleMode,
-	  SurfaceW, SurfaceH,
-	  TargetX, TargetY,
-	  TargetW, TargetH
+		ScaleMode,
+		SurfaceW, SurfaceH,
+		TargetX, TargetY,
+		TargetW, TargetH
 	)};
 
 	DrawRectOutline(

@@ -20,7 +20,7 @@ public:
         Physics->SetGravity({ 0.f, 0.f });
         Physics->SetVelocity(
             Vec2{1.f, -2.f}.Normalize()
-              * Config::Breakout::SPEED
+              * Config::Breakout::BALL_SPEED
               * Config::PIXELS_PER_METER
         );
 

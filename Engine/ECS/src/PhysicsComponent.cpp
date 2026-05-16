@@ -37,6 +37,16 @@ void PhysicsComponent::Tick(float DeltaTime) {
 
 	// 4. Reset acceleration for the next frame.
 	Acceleration = { 0.0, 0.0 };
+
+	if (ShouldConstrainHorizontalMovement) {
+		auto [x, y] {GetOwnerPosition()};
+		if (x < ConstrainLeft) {
+			SetOwnerPosition({ ConstrainLeft, y });
+		}
+		else if (x > ConstrainRight) {
+			SetOwnerPosition({ ConstrainRight, y });
+		}
+	}
 }
 
 void PhysicsComponent::DrawDebugHelpers(SDL_Surface* Surface) {

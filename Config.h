@@ -7,93 +7,93 @@
 
 namespace UserEvents{
 #ifdef WITH_EDITOR
-inline Uint32 ACTOR_DRAG{SDL_RegisterEvents(1)};
-inline Uint32 LOAD_LEVEL{SDL_RegisterEvents(1)};
-inline Uint32 SAVE_LEVEL{SDL_RegisterEvents(1)};
-inline Uint32 SAVE_AND_PLAY_LEVEL{SDL_RegisterEvents(1)};
-inline Uint32 LEVEL_EDIT{SDL_RegisterEvents(1)};
+    inline Uint32 ACTOR_DRAG{SDL_RegisterEvents(1)};
+    inline Uint32 LOAD_LEVEL{SDL_RegisterEvents(1)};
+    inline Uint32 SAVE_LEVEL{SDL_RegisterEvents(1)};
+    inline Uint32 SAVE_AND_PLAY_LEVEL{SDL_RegisterEvents(1)};
+    inline Uint32 LEVEL_EDIT{SDL_RegisterEvents(1)};
 #endif
-inline Uint32 LAUNCH_LEVEL{SDL_RegisterEvents(1)};
+    inline Uint32 LAUNCH_LEVEL{SDL_RegisterEvents(1)};
 }
 
 namespace Config {
-  enum class ActorType : Uint8 {
-    Actor = 0,
-    BlueBlock = 1,
-    GreenBlock = 2,
-    CyanBlock = 3,
-    OrangeBlock = 4,
-    RedBlock = 5,
-    YellowBlock = 6,
-  };
-
-  inline const std::vector BUTTON_COLORS{
-    SDL_Color{15, 15, 15, 255},  // Normal
-    SDL_Color{15, 155, 15, 255}, // Hover
-    SDL_Color{225, 15, 15, 255}, // Active
-    SDL_Color{60, 60, 60, 255}   // Disabled
-  };
-
-  inline constexpr SDL_Color FONT_COLOR{
-    255, 255, 255, 255
-  };
-
-  inline const std::string BASE_PATH{
-    SDL_GetBasePath()
-  };
-
-  inline const std::string FONT{
-    BASE_PATH + "Assets/Rubik-SemiBold.ttf"
-  };
-
-  static inline int PIXELS_PER_METER{ 50 };
+    enum class ActorType : Uint8 {
+      Actor = 0,
+      BlueBlock = 1,
+      GreenBlock = 2,
+      CyanBlock = 3,
+      OrangeBlock = 4,
+      RedBlock = 5,
+      YellowBlock = 6,
+    };
+    
+    inline const std::vector BUTTON_COLORS{
+      SDL_Color{15, 15, 15, 255},  // Normal
+      SDL_Color{15, 155, 15, 255}, // Hover
+      SDL_Color{225, 15, 15, 255}, // Active
+      SDL_Color{60, 60, 60, 255}   // Disabled
+    };
+    
+    inline constexpr SDL_Color FONT_COLOR{
+      255, 255, 255, 255
+    };
+    
+    inline const std::string BASE_PATH{
+      SDL_GetBasePath()
+    };
+    
+    inline const std::string FONT{
+      BASE_PATH + "Assets/Rubik-SemiBold.ttf"
+    };
+    
+    static inline int PIXELS_PER_METER{ 50 };
 }
 
 #ifdef WITH_EDITOR
 namespace Config::Editor {
-inline const Uint8 VERSION{1};
-// Level
-inline const int HORIZONTAL_GRID_SNAP{50};
-inline const int VERTICAL_GRID_SNAP{25};
-inline const Uint8 GRID_WIDTH{13};
-inline const Uint8 GRID_HEIGHT{6};
-inline const int LEVEL_WIDTH{
-  HORIZONTAL_GRID_SNAP * GRID_WIDTH
-};
-inline const int LEVEL_HEIGHT{
-  VERTICAL_GRID_SNAP * GRID_HEIGHT
-};
-inline constexpr SDL_Color LEVEL_BACKGROUND{
-  50, 50, 50, 255
-};
+    inline const Uint8 VERSION{1};
+    // Level
+    inline const int HORIZONTAL_GRID_SNAP{50};
+    inline const int VERTICAL_GRID_SNAP{25};
+    inline const Uint8 GRID_WIDTH{13};
+    inline const Uint8 GRID_HEIGHT{6};
+    inline const int LEVEL_WIDTH{
+      HORIZONTAL_GRID_SNAP * GRID_WIDTH
+    };
+    inline const int LEVEL_HEIGHT{
+      VERTICAL_GRID_SNAP * GRID_HEIGHT
+    };
+    inline constexpr SDL_Color LEVEL_BACKGROUND{
+      50, 50, 50, 255
+    };
 
-// ActorMenu
-inline const int ACTOR_MENU_WIDTH{70};
-inline const int ACTOR_MENU_POSITION_X{LEVEL_WIDTH};
-inline const SDL_Color ACTOR_MENU_BACKGROUND{
-  15, 15, 15, 255
-};
-inline const int PADDING{10};
+    // ActorMenu
+    inline const int ACTOR_MENU_WIDTH{70};
+    inline const int ACTOR_MENU_POSITION_X{LEVEL_WIDTH};
+    inline const SDL_Color ACTOR_MENU_BACKGROUND{
+      15, 15, 15, 255
+    };
+    inline const int PADDING{10};
 
-// Window
-inline const std::string WINDOW_TITLE{"Editor"};
-inline const int WINDOW_WIDTH{
-  LEVEL_WIDTH + ACTOR_MENU_WIDTH
-};
-inline const int WINDOW_HEIGHT{LEVEL_HEIGHT + 50};
-inline const SDL_Color WINDOW_BACKGROUND{
-  35, 35, 35, 255
-};
+    // Window
+    inline const std::string WINDOW_TITLE{"Editor"};
+    inline const int WINDOW_WIDTH{
+      LEVEL_WIDTH + ACTOR_MENU_WIDTH
+    };
+    inline const int WINDOW_HEIGHT{LEVEL_HEIGHT + 50};
+    inline const SDL_Color WINDOW_BACKGROUND{
+      35, 35, 35, 255
+    };
 }
 #endif
 
 namespace Config::Engine {
-inline const std::string WINDOW_TITLE{"Breakout"};
-inline const int WINDOW_WIDTH{720};
-inline const int WINDOW_HEIGHT{400};
-inline const SDL_Color WINDOW_BACKGROUND{
-  35, 35, 35, 255
-};
+    inline const std::string WINDOW_TITLE{"Breakout"};
+    inline const int WINDOW_WIDTH{720};
+    inline const int WINDOW_HEIGHT{400};
+    inline const SDL_Color WINDOW_BACKGROUND{
+      35, 35, 35, 255
+    };
 }
 
 inline void CheckSDLError(const std::string& Msg) {
@@ -109,6 +109,8 @@ inline void CheckSDLError(const std::string& Msg) {
 
 namespace Config::Breakout {
   // Meters per second
-  inline const float SPEED{10.f};
-  static inline Vec2 GRAVITY{ 0, 9.8f * PIXELS_PER_METER };
+  inline const Vec2 GRAVITY{ 0, 9.8f * PIXELS_PER_METER };
+
+  inline const float BALL_SPEED{10.f};
+  inline const float PADDLE_SPEED{5.f};
 }

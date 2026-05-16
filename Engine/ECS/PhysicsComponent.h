@@ -10,6 +10,12 @@ public:
 	void Initialize() override;
 	void Tick(float DeltaTime) override;
 
+	void ConstrainHorizontalMovement(float Left, float Right) {
+		ShouldConstrainHorizontalMovement = true;
+		ConstrainLeft = Left;
+		ConstrainRight = Right;
+	}
+
 	Vec2 GetVelocity() const { return Velocity; }
 	void SetVelocity(const Vec2& NewVelocity) {
 		Velocity = NewVelocity;
@@ -33,4 +39,7 @@ private:
 	Vec2 Acceleration{ 0.0f, 0.0f };
 	float Mass{ 1.0f };
 	Vec2 Gravity{ Config::Breakout::GRAVITY };
+	bool ShouldConstrainHorizontalMovement{ false };
+	float ConstrainLeft{ 0.0f };
+	float ConstrainRight{ 0.0f };
 };

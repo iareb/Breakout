@@ -1,6 +1,7 @@
 #include "Breakout/BreakoutScene.h"
 #include "Breakout/Ball.h"
 #include "Breakout/Wall.h"
+#include <Breakout/Paddle.h>
 
 void BreakoutScene::Load(int Level) {
     Entities.clear();
@@ -20,5 +21,9 @@ void BreakoutScene::Load(int Level) {
     );
     Entities.emplace_back(
         std::make_unique<Wall>(Right, *this)
+    );
+
+    Entities.emplace_back(
+        std::make_unique<Paddle>(*this)
     );
 }
