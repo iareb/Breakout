@@ -177,5 +177,7 @@ private:
 		if (Target && Target->Collision) {
 			Target->Collision->SetIsEnabled(true);
 		}
+
+		return 0;
 	}
 };
