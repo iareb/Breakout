@@ -42,6 +42,8 @@ add_executable(Breakout
   "Breakout/BreakoutScene.h"
   "Breakout/Ball.h"
   "Breakout/src/BreakoutScene.cpp"
+        Breakout/Wall.h
+        Breakout/src/Ball.cpp
 )
  
  target_compile_definitions(

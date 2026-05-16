@@ -27,7 +27,7 @@ void PhysicsComponent::ApplyImpulse(const Vec2& Impulse) {
 
 void PhysicsComponent::Tick(float DeltaTime) {
 	// 1. Apply persisent forces like gravity
-	ApplyForce(Scene::GRAVITY * Mass);
+	ApplyForce(Gravity * Mass);
 
 	// 2. Update velocity based on acceleration
 	Velocity += Acceleration * DeltaTime;

@@ -12,7 +12,7 @@
 * within this file.
 */
 namespace {
-	const float SPEED{ 5.f * Scene::PIXELS_PER_METER };
+	const float SPEED{ 5.f * Config::PIXELS_PER_METER };
 
 	CommandPtr CreateMoveLeftCommand() {
 		return std::make_unique<MovementCommand>(
@@ -27,7 +27,7 @@ namespace {
 
 	CommandPtr CreateJumpCommand() {
 		const float JUMP_IMPULSE_MAGNITUDE{
-			-500.f * Scene::PIXELS_PER_METER
+			-500.f * Config::PIXELS_PER_METER
 		};
 		return std::make_unique<JumpCommand>(
 			Vec2{ 0.0, JUMP_IMPULSE_MAGNITUDE }

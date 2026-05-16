@@ -15,6 +15,18 @@ Scene::Scene(Window& ParentWindow)
 #endif
 }
 
+float Scene::GetWidth() const {
+    return static_cast<float>(
+      Config::Engine::WINDOW_WIDTH
+    );
+}
+
+float Scene::GetHeight() const {
+    return static_cast<float>(
+      Config::Engine::WINDOW_HEIGHT
+    );
+}
+
 void Scene::HandleEvent(const SDL_Event& Event) {
     for (EntityPtr& E : Entities) {
         E->HandleEvent(Event);

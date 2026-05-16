@@ -3,6 +3,7 @@
 #include <SDL3/SDL.h>
 #include <string>
 #include <vector>
+#include "Engine/Vec2.h"
 
 namespace UserEvents{
 #ifdef WITH_EDITOR
@@ -16,34 +17,36 @@ inline Uint32 LAUNCH_LEVEL{SDL_RegisterEvents(1)};
 }
 
 namespace Config {
-enum class ActorType : Uint8 {
-  Actor = 0,
-  BlueBlock = 1,
-  GreenBlock = 2,
-  CyanBlock = 3,
-  OrangeBlock = 4,
-  RedBlock = 5,
-  YellowBlock = 6,
-};
+  enum class ActorType : Uint8 {
+    Actor = 0,
+    BlueBlock = 1,
+    GreenBlock = 2,
+    CyanBlock = 3,
+    OrangeBlock = 4,
+    RedBlock = 5,
+    YellowBlock = 6,
+  };
 
-inline const std::vector BUTTON_COLORS{
-  SDL_Color{15, 15, 15, 255},  // Normal
-  SDL_Color{15, 155, 15, 255}, // Hover
-  SDL_Color{225, 15, 15, 255}, // Active
-  SDL_Color{60, 60, 60, 255}   // Disabled
-};
+  inline const std::vector BUTTON_COLORS{
+    SDL_Color{15, 15, 15, 255},  // Normal
+    SDL_Color{15, 155, 15, 255}, // Hover
+    SDL_Color{225, 15, 15, 255}, // Active
+    SDL_Color{60, 60, 60, 255}   // Disabled
+  };
 
-inline constexpr SDL_Color FONT_COLOR{
-  255, 255, 255, 255
-};
+  inline constexpr SDL_Color FONT_COLOR{
+    255, 255, 255, 255
+  };
 
-inline const std::string BASE_PATH{
-  SDL_GetBasePath()
-};
+  inline const std::string BASE_PATH{
+    SDL_GetBasePath()
+  };
 
-inline const std::string FONT{
-  BASE_PATH + "Assets/Rubik-SemiBold.ttf"
-};
+  inline const std::string FONT{
+    BASE_PATH + "Assets/Rubik-SemiBold.ttf"
+  };
+
+  static inline int PIXELS_PER_METER{ 50 };
 }
 
 #ifdef WITH_EDITOR
@@ -102,4 +105,10 @@ inline void CheckSDLError(const std::string& Msg) {
     SDL_ClearError();
   }
 #endif
+}
+
+namespace Config::Breakout {
+  // Meters per second
+  inline const float SPEED{10.f};
+  static inline Vec2 GRAVITY{ 0, 9.8f * PIXELS_PER_METER };
 }
