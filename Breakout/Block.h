@@ -46,14 +46,29 @@ public:
 			);
 		}
 
+		float Height{ 25.5f };
+
+#ifdef WITH_EDITOR
 		float Width{ 
 			(Config::Engine::WINDOW_WIDTH * 0.8f) /
 			 Config::Editor::GRID_WIDTH
 		};
-		float Height{ 25.5f };
 
 		float totalWidth{ Config::Editor::GRID_WIDTH * Width };
 		float totalHeight{ Config::Editor::GRID_HEIGHT * Height };
+#else
+		int GridWidth{ 13 };
+		int GridHeight{ 6 };
+
+		float Width{
+			(Config::Engine::WINDOW_WIDTH * 0.8f) /
+			GridWidth
+		};
+
+		float totalHeight{ GridHeight * Height };
+		float totalWidth{ GridWidth * Width };
+#endif	
+
 		float StartX{ (Config::Engine::WINDOW_WIDTH - totalWidth) / 2.0f };
 		float StartY{ 40.0f };
 

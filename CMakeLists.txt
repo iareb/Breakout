@@ -23,7 +23,7 @@ set(
   "${CMAKE_BINARY_DIR}/$<CONFIGURATION>"
 )
 
-set(WITH_EDITOR off)
+set(WITH_EDITOR OFF)
 
 set(SOURCE_FILES
   "main.cpp"
@@ -54,13 +54,13 @@ add_executable(Breakout
   ${SOURCE_FILES}
 )
 
- target_compile_definitions(
+target_compile_definitions(
 	Breakout PUBLIC
 	# WITH_EDITOR
 	# CHECK_ERRORS
     # DRAW_DEBUG_HELPERS
     # ENABLE_CHEATS
- )
+)
 
 if(WITH_EDITOR)
     target_compile_definitions(Breakout PUBLIC
