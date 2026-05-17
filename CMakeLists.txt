@@ -23,15 +23,11 @@ set(
   "${CMAKE_BINARY_DIR}/$<CONFIGURATION>"
 )
 
-add_executable(Breakout
+set(WITH_EDITOR off)
+
+set(SOURCE_FILES
   "main.cpp"
-  
-  "Editor/src/Button.cpp"
-  "Editor/src/Blocks.cpp"
-  "Editor/src/Actor.cpp"
-  "Editor/src/ActorTooltip.cpp"
-  "Editor/src/Level.cpp"
-  
+
   "Engine/src/Scene.cpp"
   "Engine/ECS/src/Component.cpp"
   "Engine/ECS/src/CollisionComponent.cpp"
@@ -39,18 +35,38 @@ add_executable(Breakout
   "Engine/ECS/src/PhysicsComponent.cpp"
   "Engine/ECS/src/InputComponent.cpp"
   "Engine/ECS/src/Commands.cpp"
-  "Breakout/BreakoutScene.h"
-  "Breakout/Ball.h"
+
   "Breakout/src/BreakoutScene.cpp"
-  "Breakout/Wall.h"
   "Breakout/src/Ball.cpp"
- "Breakout/PaddleInputComponent.h" "Breakout/Block.h")
- 
+)
+
+if(WITH_EDITOR) 
+  list(APPEND SOURCE_FILES 
+    "Editor/src/Button.cpp" 
+    "Editor/src/Blocks.cpp" 
+    "Editor/src/Actor.cpp" 
+    "Editor/src/ActorTooltip.cpp" 
+    "Editor/src/Level.cpp" 
+  ) 
+endif() 
+
+add_executable(Breakout
+  ${SOURCE_FILES}
+)
+
  target_compile_definitions(
 	Breakout PUBLIC
-	WITH_EDITOR
-	CHECK_ERRORS
+	# WITH_EDITOR
+	# CHECK_ERRORS
+    # DRAW_DEBUG_HELPERS
+    # ENABLE_CHEATS
  )
+
+if(WITH_EDITOR)
+    target_compile_definitions(Breakout PUBLIC
+        WITH_EDITOR
+    )
+endif()
  
  target_include_directories(
     Breakout PUBLIC ${PROJECT_SOURCE_DIR}

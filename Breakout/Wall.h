@@ -38,6 +38,17 @@ public:
         }
     }
 
+    void HandleCollision(Entity& Other) override {
+        if (
+            dynamic_cast<Ball*>(&Other) &&
+            Position == WallPosition::Bottom
+        ) { 
+            SDL_Event E{};
+            E.type = UserEvents::GAME_LOST;
+            SDL_PushEvent(&E);
+        }
+    }
+
 private:
     WallPosition Position;
 };

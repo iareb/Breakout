@@ -73,6 +73,19 @@ public:
 		Image->SetHeight(Height);
 	}
 
+	void HandleCollision(Entity& Other) override {
+		// Ignore collisions between blocks
+		if (dynamic_cast<Block*>(&Other)) {
+			return;
+		}
+
+		Image->SetIsEnabled(false);
+		Collision->SetIsEnabled(false);
+		SDL_Event E{};
+		E.type = UserEvents::BLOCK_DESTROYED;
+		SDL_PushEvent(&E);
+	}
+
 private:
 	TransformComponent* Transform{ nullptr };
 	CollisionComponent* Collision{ nullptr };

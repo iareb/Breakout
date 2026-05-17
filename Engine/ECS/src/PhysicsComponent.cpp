@@ -26,6 +26,10 @@ void PhysicsComponent::ApplyImpulse(const Vec2& Impulse) {
 }
 
 void PhysicsComponent::Tick(float DeltaTime) {
+
+	if (DeltaTime > 0.1) return;
+	if (!GetIsEnabled()) return;
+
 	// 1. Apply persisent forces like gravity
 	ApplyForce(Gravity * Mass);
 

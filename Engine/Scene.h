@@ -8,6 +8,8 @@
 #include "Engine/ECS/PhysicsComponent.h"
 #include "Engine/ECS/InputComponent.h"
 
+enum class GameState { InProgress, Won, Lost };
+
 using EntityPtr = std::unique_ptr<Entity>;
 using EntityPtrs = std::vector<EntityPtr>;
 
@@ -27,12 +29,17 @@ public:
 	float GetWidth() const;
 	float GetHeight() const;
 
-	void HandleEvent(const SDL_Event& Event);
+	virtual void HandleEvent(const SDL_Event& Event);
 	void Tick(float DeltaTime);
 	void Render(SDL_Surface* Surface);
 
 	AssetManager& GetAssetManager();
 	Window& GetWindow() const;
+
+	GameState GetState() const { return State; }
+	void SetState(GameState NewState) {
+		State = NewState;
+	}
 
 protected:
 	EntityPtrs Entities;
@@ -41,4 +48,5 @@ protected:
 
 private:
 	void CheckCollisions();
+	GameState State{ GameState::InProgress };
 };

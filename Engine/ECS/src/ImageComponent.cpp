@@ -117,9 +117,9 @@ void ImageComponent::Initialize() {
 }
 
 void ImageComponent::Render(SDL_Surface* Surface) {
-	if (!ImageSurface) {
-		return;
-	}
+	if (!GetIsEnabled()) return;
+
+	if (!ImageSurface) return;
 
 	auto [TargetX, TargetY] { GetOwnerPosition() + Offset };
 
@@ -212,6 +212,8 @@ void ImageComponent::SetScalingMode(ScalingMode Mode) {
 
 void ImageComponent::DrawDebugHelpers(SDL_Surface* Surface) {
 	using Utilities::DrawRectOutline;
+
+	if (!GetIsEnabled()) return;
 	if (!ImageSurface) return;
 
 	// Gather our position and dimensions for

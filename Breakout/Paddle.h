@@ -41,11 +41,29 @@ public:
 		});
 
 		AddComponent<ImageComponent>(Config::BASE_PATH + "Assets/Paddle_Frame_B.png");
+
+		SetIsPaused(true);
 	}
 	
 	void Tick(float DeltaTime) override {
 		Entity::Tick(DeltaTime);
 		Physics->SetVelocity({ 0.f, 0.f });
+	}
+
+	void HandleEvent(const SDL_Event& E) override {
+		if (
+			E.type == SDL_EVENT_KEY_DOWN &&
+			E.key.key == SDLK_SPACE &&
+			GetScene().GetState() == GameState::InProgress
+		) {
+			SetIsPaused(false);
+		}
+		else if (
+			E.type == UserEvents::GAME_WON ||
+			E.type == UserEvents::GAME_LOST
+		) {
+			SetIsPaused(true);
+		}
 	}
 
 	/**
@@ -179,5 +197,10 @@ private:
 		}
 
 		return 0;
+	}
+
+	void SetIsPaused(bool isPaused) {
+		Input->SetIsEnabled(!isPaused);
+		Physics->SetIsEnabled(!isPaused);
 	}
 };

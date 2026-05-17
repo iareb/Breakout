@@ -14,7 +14,7 @@ public:
             Config::Engine::WINDOW_WIDTH / 2.f,
             Config::Engine::WINDOW_HEIGHT * 0.5f
         });
-        // Transform->SetScale(0.3f);
+        Transform->SetScale(0.5f);
 
         Physics = AddComponent<PhysicsComponent>();
         Physics->SetGravity({ 0.f, 0.f });
@@ -36,6 +36,24 @@ public:
         Image = AddComponent<ImageComponent>(Config::BASE_PATH + "Assets/Grey.png");
         Image->SetWidth(1.2f * Config::PIXELS_PER_METER);
         Image->SetHeight(1.2f * Config::PIXELS_PER_METER);
+
+        SetIsPaused(true);
+    }
+
+    void HandleEvent(const SDL_Event& E) override {
+        if (
+            E.type == SDL_EVENT_KEY_DOWN &&
+            E.key.key == SDLK_SPACE &&
+            GetScene().GetState() == GameState::InProgress
+        ) {
+            SetIsPaused(false);
+        }
+        else if (
+            E.type == UserEvents::GAME_WON ||
+            E.type == UserEvents::GAME_LOST
+        ) {
+            SetIsPaused(true);
+        }
     }
 
     void HandleCollision(Entity &Other) override;
@@ -45,4 +63,9 @@ private:
     PhysicsComponent* Physics;
     CollisionComponent* Collision;
     ImageComponent* Image;
+
+    void SetIsPaused(bool isPaused) {
+        Physics->SetIsEnabled(!isPaused);
+        Collision->SetIsEnabled(!isPaused);
+    }
 };
